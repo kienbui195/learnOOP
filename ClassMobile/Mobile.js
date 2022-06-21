@@ -9,17 +9,13 @@ class Mobile {
     }
 
     checkPin(pin) {
-        if (pin > 20) {
-            this._status = true;
-            return this._status;
-        } else if (pin > 1 && pin <= 20) {
+       if (pin > 1) {
             this._status = true;
             return this._status;
         } else {
             this._status = false;
             return this._status;
         }
-
     }
 
     checkStatus() {
