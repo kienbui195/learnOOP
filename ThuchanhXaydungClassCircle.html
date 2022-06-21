@@ -6,25 +6,23 @@
 </head>
 <body>
     <script>
-        let MyCircle = function(radius) {
-            this.radius = radius;
-            this.getRadius = function () {
-                return radius;
+        class MyCircle {
+            constructor (radius) {
+                this._radius = radius;
             }
-            this.getArea = function () {
-                return Math.PI*radius*radius;
-            }
-        };
 
-        /*let circle = new MyCircle(2);
-        let redius = circle.getRadius();
-        let area = circle.getArea();
-        alert(`Radius: ${redius}; Area: ${area}`);*/
+            getRadius() {
+                return this._radius;
+            }
+            getArea() {
+                return Math.PI*this._radius*this._radius;
+            }
+        }
 
         let circle = new MyCircle(5);
         let redius = circle.getRadius();
         let area = circle.getArea();
-        alert(`Radius: ${redius}; Area: ${area}`);
+        alert('Radius: ' + redius + '; Area: ' + area );
 
     </script>
 </body>

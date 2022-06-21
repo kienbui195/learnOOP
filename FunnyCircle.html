@@ -1,10 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Funny Circle</title>
 </head>
 <body>
-$END$
+<canvas id="myCanvas" width="1360px" height="600px" style="border: 1px solid #d3d3d3">
+
+</canvas>
+<script>
+    class Circle {
+        constructor(x, y, radius) {
+            this.x = x;
+            this.y = y;
+            this.radius = radius;
+        }
+    }
+
+        function getPositionCircle() {
+            let circleObj = document.getElementById("myCanvas");
+            circleObj.style.position = 'relative';
+            circleObj.style.left = '0px';
+            circleObj.style.top = '0px';
+        }
+
+        function moveRandomCircle() {
+            let circleObj = document.getElementById("myCanvas");
+            circleObj.style.left = parseInt(circleObj.style.left) + Math.floor(Math.random() * 300) + 'px';
+            circleObj.style.top = parseInt(circleObj.style.top) + Math.floor(Math.random() * 300) + 'px';
+            circleObj.style.right = parseInt(circleObj.style.right) + Math.floor(Math.random() * 300) + 'px';
+            circleObj.style.bottom = parseInt(circleObj.style.bottom) + Math.floor(Math.random() * 300) + 'px';
+        }
+
+        function getRandomHex() {
+            return Math.floor(Math.random() * 255);
+        }
+
+        function getRandomColor() {
+            var red = getRandomHex();
+            var green = getRandomHex();
+            var blue = getRandomHex();
+            return "rgb(" + red + "," + blue + "," + green + ")";
+        }
+
+        function reateCircle() {
+            var ctx = document.getElementById("myCanvas").getContext("2d");
+            var radius = Math.floor(Math.random() * 80);
+            var color = getRandomColor();
+            var x = Math.random() * window.innerWidth;
+            var y = Math.random() * window.innerHeight;
+            var circle = new Circle(x, y, radius);
+            ctx.beginPath();
+            ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+            ctx.fillStyle = color;
+            ctx.fill();
+        }
+
+        function createMultipleCircle() {
+            for (var i = 0; i < 30; i++) {
+                createCircle();
+            }
+        }
+
+
+
+    createMultipleCircle();
+
+
+</script>
 </body>
 </html>

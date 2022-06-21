@@ -6,21 +6,24 @@
 </head>
 <body>
   <script>
-     let MyTemperature = function(Celcius) {
-         this.celcius = Celcius;
-         this.getTemp = function () {
+     class MyTemperature {
+         constructor(Celcius) {
+             this.celcius = Celcius;
+         }
+
+         getTemp() {
              return this.celcius;
          }
-         this.setTemp = function (Celcius) {
+         setTemp(Celcius) {
              return this.celcius = Celcius;
          }
-         this.conveterToF = function () {
+         conveterToF() {
              return 1.8*this.celcius + 32;
          }
-         this.conveterToK = function () {
+         conveterToK() {
              return this.celcius+273.15;
          }
-     };
+     }
 
      let temperatureofHaNoi = new MyTemperature(25);
      alert('Do F: ' + temperatureofHaNoi.conveterToF() + '; do Kevin: ' + temperatureofHaNoi.conveterToK());

@@ -7,39 +7,43 @@
 <body>
     <canvas id="draw-rect" width="800px" height="600px" style="border: 1px solid #d61b06"></canvas>
     <script>
-        let Rectangle = function(x, y, width, height) {
-            this.width = width;
-            this.height = height;
-            this.x = x;
-            this.y = y;
-            this.getWeight = function () {
-                return this.width;
+        class Rectangle {
+
+            constructor (x, y, width, height) {
+                this.width = width;
+                this.height = height;
+                this.x = x;
+                this.y = y;
             }
-            this.getHeight = function () {
-                return this.height;
+
+            getWeight() {
+                this.width;
             }
-            this.getX = function () {
-                return this.x;
+            getHeight() {
+                this.height;
             }
-            this.getY = function () {
-                return this.y;
+            getX() {
+                this.x;
             }
-            this.getPerimeter = function () {
+            getY() {
+                this.y;
+            }
+            getPerimeter() {
                 return 2*this.width*this.height;
             }
-            this.setWidth = function (width) {
-                return this.width = width;
+            setWidth(width) {
+                this.width = width;
             }
-            this.setHeight = function (height) {
-                return this.height = height;
+            setHeight(height) {
+                this.height = height;
             }
-            this.setX = function (x) {
-                return this.x = x;
+            setX(x) {
+                this.x = x;
             }
-            this.setY = function (y) {
-                return this.y = y;
+            setY(y) {
+                this.y = y;
             }
-            this.drawRect = function () {
+            drawRect() {
                 let c = document.getElementById("draw-rect");
                 let ctx = c.getContext("2d");
                 ctx.beginPath();
@@ -47,7 +51,7 @@
                 ctx.strokeStyle = "#d61b06";
                 ctx.stroke();
             }
-        };
+        }
 
         let myrect = new Rectangle(10,10,150,70);//tạo Obj mới thuộc lớp
         myrect.drawRect();
