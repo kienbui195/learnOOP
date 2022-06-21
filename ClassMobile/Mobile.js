@@ -10,11 +10,9 @@ class Mobile {
 
     checkPin(pin) {
         if (pin > 20) {
-            document.write('<br>' + pin + '%');
             this._status = true;
             return this._status;
         } else if (pin > 1 && pin <= 20) {
-            document.write('<br>' + 'Pin yeu, vui long cam bo sac');
             this._status = true;
             return this._status;
         } else {

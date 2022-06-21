@@ -1,6 +1,9 @@
 
 
 
-let mobilephone = new Mobile(78, 'hello', 'xinchao','null');
-mobilephone.turnOnOrOff('on');
-mobilephone.viewInbox();
+let nokia = new Mobile(25,[],[],[],'on');
+let iphone = new Mobile(78,[],[],[],'on');
+nokia.typeNewMess('abc');
+nokia.sentMess(iphone);
+iphone.receiveMess(nokia);
+document.write(iphone._inbox);
