@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <script>
+     let MyTemperature = function(Celcius) {
+         this.celcius = Celcius;
+         this.getTemp = function () {
+             return this.celcius;
+         }
+         this.setTemp = function (Celcius) {
+             return this.celcius = Celcius;
+         }
+         this.conveterToF = function () {
+             return 1.8*this.celcius + 32;
+         }
+         this.conveterToK = function () {
+             return this.celcius+273.15;
+         }
+     };
+
+     let temperatureofHaNoi = new MyTemperature(25);
+     alert('Do F: ' + temperatureofHaNoi.conveterToF() + '; do Kevin: ' + temperatureofHaNoi.conveterToK());
+  </script>
+
+</body>
+</html>
