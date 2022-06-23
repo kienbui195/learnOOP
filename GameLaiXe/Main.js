@@ -2,6 +2,7 @@ let canvas = document.getElementById('game');
 let ctx = canvas.getContext('2d');
 let car = new Cars(280, 450, 10, 5, 20);
 let brickwall = new Brickwall(Math.random() * 350, 0, 100, 20);
+let point = 0;
 car.draw();
 
 
@@ -23,7 +24,6 @@ window.addEventListener('keydown', function (event) {
             car.setSpeed(80);
             break;
     }
-
 })
 
 
@@ -50,12 +50,18 @@ function clearCanvas() {
 }
 
 function checkCollision() {
-    if (brickwall.x + brickwall.width >= car.positionX && brickwall.x + brickwall.width <= car.positionX + car.width) {
-        if (brickwall.y + brickwall.height >= car.positionY && brickwall.y + brickwall.height <= car.positionY + car.height) {
-            alert('Lose');
+    if (brickwall.y + brickwall.height >= car.positionY
+        && brickwall.x >= car.positionX - brickwall.width
+        && brickwall.x <= car.positionX + car.width) {
+            alert('Lose. Your point: ' + point );
             clearInterval(setInterval(play, 50));
-        }
+        } else if (brickwall.y + brickwall.height >= canvas.height) {
+        point++;
+        brickwall.y = 0;
+        brickwall.draw();
     }
-}
+    }
+
+
 
 setInterval(play, 100);
